@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/rynelaster/Full-Stack-Lab/issues"
   },
-  "homepage": "https://github.com/rynelaster/Full-Stack-Lab#readme"
+  "homepage": "https://github.com/rynelaster/Full-Stack-Lab#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
 }
