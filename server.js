@@ -16,23 +16,36 @@ mongoose.connection.once('open', (req, res)=>{
 	console.log('Connected to Mongo')
 })
 
-// Middleware
+// MIDDLEWARE
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: false}));
+
+
+// This is our MODEL
+const Taco = require('./models/tacos.js');
+
+
 
 // This is our NEW Route
 app.get('/tacos/new', (req, res)=>{
 	res.render('new.ejs', )
 })
 
-// Post Route
+// POST Route
 app.post('/tacos/', (req, res) =>{
 	if (req.body.isSpicy === 'on') {
 		req.body.isSpicy = true
 	} else {
 		req.body.isSpicy = false
 	}
+
+// create a new TACO
+Taco.create(req.body, (err, createdTaco) =>{
+	if(err) console.log(err)
 	res.send(req.body)
+	console.log(req.body)
+	})
+
 })
 
 
