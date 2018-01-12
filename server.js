@@ -24,7 +24,14 @@ app.use(bodyParser.urlencoded({extended: false}));
 // This is our MODEL
 const Taco = require('./models/tacos.js');
 
-
+// INDEX Route
+app.get('/tacos', (req, res)=>{
+	Taco.find({}, (err, allTacos)=>{
+		if(err)console.log(err)
+			console.log(allTacos)
+		res.render('index.ejs', {tacos: allTacos})
+	})
+})
 
 // This is our NEW Route
 app.get('/tacos/new', (req, res)=>{
@@ -39,11 +46,13 @@ app.post('/tacos/', (req, res) =>{
 		req.body.isSpicy = false
 	}
 
+
 // create a new TACO
 Taco.create(req.body, (err, createdTaco) =>{
 	if(err) console.log(err)
-	res.send(req.body)
+	// res.send(req.body)
 	console.log(req.body)
+	res.redirect('/tacos')
 	})
 
 })
