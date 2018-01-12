@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		<%=taco.name %>'s Page</title>
+</head>
+<body>
+	<h1>This is the <%=taco.name %>'s Page</h1>
+	The <%=taco.name %> is a<%=taco.type%>Taco. It is <% if(!taco.isSpicy) { %> not <% } %> spicy.
+	<br>
+	<a href="/tacos">&lt; Go back to the taco list. </a>
+
+</body>
+</html>

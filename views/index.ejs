@@ -6,10 +6,12 @@
 <body>
 	<h1>Greatest Tacos Ever</h1>
 
+	<a href="/tacos/new">Make a Taco!</a>
+
 	<ul>
 		<% for(let i = 0; i < tacos.length; i++){ %>
 		<li>
-			<%= tacos[i].name%>
+			<a href="/tacos/<%=tacos[i].id %>"><%= tacos[i].name%></a>
 		</li>
 		<% } %>
 

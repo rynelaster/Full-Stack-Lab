@@ -60,7 +60,14 @@ Taco.create(req.body, (err, createdTaco) =>{
 
 
 
+// SHOW Route
+app.get('/tacos/:id', (req, res)=>{
+	Taco.findById(req.params.id, (err, foundTaco)=>{
+	res.render('show.ejs', {taco: foundTaco})
+	
+	})
 
+})
 
 
 
